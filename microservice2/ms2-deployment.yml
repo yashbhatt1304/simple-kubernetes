@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yash-ms2-deployment
+spec:
+  selector:
+    matchLabels:
+      app: yash-app2
+  template:
+    metadata:
+      labels:
+        app: yash-app2
+    spec:
+      containers:
+      - name: ms2
+        image: yashbbhatt/yash-ms2:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3002

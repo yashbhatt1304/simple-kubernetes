@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yash-ms1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yash-app1
+  template:
+    metadata:
+      labels:
+        app: yash-app1
+    spec:
+      containers:
+      - name: ms1
+        image: yashbbhatt/yash-ms1:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3001
